@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Konferencia>
+    <cim>Hogyan ne halogassunk! (előadás elhalasztva előre nem látható időpontra)</cim>
+    
+    <hallgatok>
+        <hallgato>
+            <nev>Kató András</nev>
+            <lakcim>3530. Miskolc, Sarolta utca 8.</lakcim>
+        </hallgato>
+        
+        <hallgato>
+            <nev>Re Becca</nev>
+            <lakcim>1253. Szeged, Amerikai utca 11.</lakcim>
+        </hallgato>
+        
+        <hallgato>
+            <nev>Veréb Gólya</nev>
+            <lakcim>1243. Paraszti, Szántó út 123.</lakcim>
+        </hallgato>
+        
+    </hallgatok>
+    
+    <helyszin>Miskolci Egyetemi Könyvtár</helyszin>
+    
+    <eloado>
+        <nev>Lusti Törp</nev>
+        <adoszam>47095596091</adoszam>
+        <lakcim>1454. Budapest, Aprajafalva 1.</lakcim>
+    </eloado>
+    
+    <datum>2100-12-01</datum>
+    
+</Konferencia>
