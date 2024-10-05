@@ -21,7 +21,7 @@
             <hely>In/103</hely>
             <idopont>Kedd 10:00</idopont>
             <oktato>Dr. Bednarik László</oktato>
-           	<oraado>Kovács Mercédesz</oraado>
+	    <oraado>Kovács Mercédesz</oraado>
         </kurzus>
         
         <kurzus id="WRMF12" jovahagyas="igen" nyelv="magyar">
