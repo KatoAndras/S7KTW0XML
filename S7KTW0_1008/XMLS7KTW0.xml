@@ -1,8 +1,7 @@
-<xsi:noNamespaceSchemaLocation="KA_XMLSchema.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<vendeglatas xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNameSpaceSchemaLocation="Etterem.xsd">
 
-<!-- vendeglatas xlmns:xsi="http://www.w3.org/2001/XMLSche> -->>
-
-<!-- Ettermek -->>
+<!-- Ettermek -->
 
 	<etterem ekod="e1">
 		<nev>Trófea</nev>
@@ -24,46 +23,85 @@
 		<csillag>2</csillag>
 	</etterem>
 
-<!-- Főszakácsok -->>
+<!-- Főszakácsok -->
 
-<foszakacs fkod="f1" e_f="e1">
-
-	<nev></nev>
-	<eletkor><</eletkor>
-	<vegzettseg></vegzettseg>
-
-</foszakacs>
-
-
-<!-- Szakácsok -->>
-
-<szakacs szkod="sz1" e_sz="e1">
-	<nev></nev>
-	<reszleg></reszleg>
-	<vegzettseg></vegzettseg>
-	<vegzettseg></vegzettseg>
+	<foszakacs fkod="f1" e_f="e1">
+		<nev>Kiss Béla</nev>
+		<eletkor>35</eletkor>
+		<vegzettseg>Konyhaséf Mester</vegzettseg>
+	</foszakacs>
 	
+	<foszakacs fkod="f2" e_f="e2">
+		<nev>Halom Mátyás</nev>
+		<eletkor>52</eletkor>
+		<vegzettseg>Konyha Felelős</vegzettseg>
+	</foszakacs>
+
+<!-- Szakácsok -->
+
+	<szakacs szkod="sz1" e_sz="e1">
+		<nev>Kormos István</nev>
+		<reszleg>konyha</reszleg>
+		<vegzettseg>Szakács</vegzettseg>
+	</szakacs>
 	
-</szakaccs>
+	<szakacs szkod="sz2" e_sz="e2">
+		<nev>Bajor Tímea</nev>
+		<reszleg>konyha</reszleg>
+		<vegzettseg>Szakács</vegzettseg>
+	</szakacs>
 
-<!-- Gyakornok -->>
-
-	<gyakornok gyakod="gy1" e_egy="e1">
-		<nev>Kertes Elemér</nev>
+<!-- Gyakornokok -->
+	<gyakornok gyakod="gy1" e_gy="e1">
+		<nev>Kató András</nev>
 		<gyakorlat>
-			<kezdete>2024.10.08.</kezdete>
-			<idotartama>6 hónap</idotartama>
+			<kezdete>2024.11.18.</kezdete>
+			<idotartama>12 hónap</idotartama>
 		</gyakorlat>
 		<muszak>napközi</muszak>
+	</gyakornok>
+
+	<gyakornok gyakod="gy2" e_gy="e2">
+		<nev>Jakab Gizella</nev>
+		<gyakorlat>
+			<kezdete>2024.12.03.</kezdete>
+			<idotartama>18 hónap</idotartama>
+		</gyakorlat>
 		<muszak>este</muszak>
 	</gyakornok>
+
+<!-- Vendégek -->
+
+	<vendeg vkod="v1">
+		<nev>Recsó Aladár</nev>
+		<eletkor>30</eletkor>
+		<cim>
+			<varos>Miskolc</varos>
+			<utca>Sarolta</utca>
+			<hazszam>6</hazszam>
+		</cim>
+	</vendeg>
 	
-	<gyakornok gyakod="gy2" e_egy="e2">
-			<nev>Jakab Máté<</nev>
-			<gyakorlat>
-				<kezdete>2024.10.09.</kezdete>
-				<idotartama>6 hónap</idotartama>
-			</gyakorlat>
-			<muszak>reggel</muszak>
-			<muszak>este</muszak>
-		</gyakornok>
+	<vendeg vkod="v2">
+		<nev>Tímár Melinda</nev>
+		<eletkor>20</eletkor>
+		<cim>
+			<varos>Budapest</varos>
+			<utca>Ferenci</utca>
+			<hazszam>121</hazszam>
+		</cim>
+	</vendeg>
+
+<!-- Rendelések -->
+
+	<rendeles rkod="r1" e_v_e="e1" e_v_v="v1">
+		<osszeg>12000</osszeg>
+		<etel>Máglyarakás</etel>
+	</rendeles>
+	
+	<rendeles rkod="r2" e_v_e="e2" e_v_v="v2">
+		<osszeg>5000</osszeg>
+		<etel>Nutellás Palacsinta</etel>
+	</rendeles>
+
+</vendeglatas>
