@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- A sajat tipusokat letrehozom, kesobb deifnialni fogom oket -->
+    <xs:element name="TelekomCeg">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Dolgozok" type="dolgozokTipus"/>
+                <xs:element name="Szolgaltatasok" type="szolgaltatasokTipus"/>
+                <xs:element name="Ugyfelek" type="ugyfelekTipus"/>
+                <xs:element name="Mentorok" type="mentorokTipus"/>
+                <xs:element name="Eszkozgyartok" type="eszkozgyartokTipus"/>
+                <xs:element name="Ugyintezesek" type="ugyintezesekTipus"/>
+                <xs:element name="Ertekesitesek" type="ertekesitesekTipus"/>
+            </xs:sequence>
+        </xs:complexType>
+        
+        <!-- Letrehozom a kulcsokat, key jelzo segitsegevel --> 
+		
+		<xs:key name="dolgozo_kulcs">
+	        <xs:selector xpath="Dolgozo"/>
+	        <xs:field xpath="@dolg_id"/>
+    	</xs:key>
+    	
+    	<xs:key name="szolgaltato_kulcs">
+	        <xs:selector xpath="Szolgaltatas"/>
+	        <xs:field xpath="@szolg_id"/>
+    	</xs:key>
+
+		<xs:key name="ugyfel_kulcs">
+	        <xs:selector xpath="Ugyfel"/>
+	        <xs:field xpath="@ugyfel_id"/>
+    	</xs:key>
+    	
+    	<xs:key name="mentor_kulcs">
+	        <xs:selector xpath="Mentor"/>
+	        <xs:field xpath="@mentor_id"/>
+    	</xs:key>
+    	
+    	<xs:key name="eszkozgyarto_kulcs">
+	        <xs:selector xpath="Eszkozgyarto"/>
+	        <xs:field xpath="@gyarto_id"/>
+    	</xs:key>
+    	
+    	<xs:key name="ugyintezes_kulcs">
+	        <xs:selector xpath="Ugyintezes"/>
+	        <xs:field xpath="@ugyintezes_id"/>
+    	</xs:key>
+    	
+    	<xs:key name="ertekesites_kulcs">
+	        <xs:selector xpath="Ertekesites"/>
+	        <xs:field xpath="@mertekesites_id"/>
+    	</xs:key>
+    	
+    	<!-- Referenciakat hozok letre. A dolgozo kapcsolatban van az ugyfelekkel es szolgaltatasokkal --> 
+		
+    	<xs:keyref name="szolg_dolgozo_ref" refer="dolgozo_kulcs">
+	        <xs:selector xpath="Szolgaltatas"/>
+	        <xs:field xpath="@d_sz"/>
+    	</xs:keyref>
+
+    	<xs:keyref name="ugyfel_dolgozo_ref" refer="dolgozo_kulcs">
+	        <xs:selector xpath="Ugyfel"/>
+	        <xs:field xpath="@d_u"/>
+    	</xs:keyref>
+    	
+    	<!-- Egyedi, specialis definicio megvalositasa unique jelzovel dolgozo-ugyfelre --> 
+		
+		<xs:unique name="unique_ugyfel">
+			<xs:selector xpath="Ugyfel"/>
+			<xs:field xpath="@d_u"/>
+		</xs:unique>
+        
+    </xs:element>
+
+    <!-- Dolgozok tipusanak a definialasa, mivel tobb dolgozo van, ezert a dolgozokTipusba illesztem a dolgozoTipust -->
+    <xs:complexType name="dolgozokTipus">
+        <xs:sequence>
+            <xs:element name="Dolgozo" type="dolgozoTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dolgozoTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string"/>
+            <xs:element name="szul_ev" type="xs:integer"/>
+            <xs:element name="beosztas" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="dolg_id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Szolgaltatasok tipusanak a definialasa -->
+    <xs:complexType name="szolgaltatasokTipus">
+        <xs:sequence>
+            <xs:element name="Szolgaltatas" type="szolgaltatasTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="szolgaltatasTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string"/>
+            <xs:element name="ar" type="xs:integer"/>
+            <xs:element name="technologia" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="szolg_id" type="xs:string" use="required"/>
+        <xs:attribute name="d_sz" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <!-- Ugyfelek tipusanak a definialasa -->
+    <xs:complexType name="ugyfelekTipus">
+        <xs:sequence>
+            <xs:element name="Ugyfel" type="ugyfelTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ugyfelTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string"/>
+            <xs:element name="szul_ev" type="xs:integer"/>
+            <xs:element name="eletkor" type="xs:integer"/>
+            <xs:element name="lakcim" type="cimTipus"/>
+            <xs:element name="aktivSzolgaltatasok" type="aktivSzolgTipus"/>
+        </xs:sequence>
+        <xs:attribute name="ugyfel_id" type="xs:string" use="required"/>
+        <xs:attribute name="d_u" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <!-- Lakcim tipusanak a definialasa, tobb elembol all -->
+    <xs:complexType name="cimTipus">
+        <xs:sequence>
+            <xs:element name="irsz" type="xs:integer"/>
+            <xs:element name="kozseg" type="xs:string"/>
+            <xs:element name="kozterulet" type="xs:string"/>
+            <xs:element name="hazszam" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Aktiv szolgaltatasok tipusanak a definialasa, tobb elembol all -->
+    <xs:complexType name="aktivSzolgTipus">
+        <xs:sequence>
+            <xs:element name="aktivSzolgaltatas" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Mentorok tipusanak a definialasa -->
+    <xs:complexType name="mentorokTipus">
+        <xs:sequence>
+            <xs:element name="Mentor" type="mentorTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="mentorTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string"/>
+            <xs:element name="telefonszam" type="xs:integer"/>
+            <xs:element name="ledolgozottEvek" type="xs:integer"/>
+        </xs:sequence>
+        <xs:attribute name="mentor_id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Eszkozgyartok tipusanak a definialasa -->
+    <xs:complexType name="eszkozgyartokTipus">
+        <xs:sequence>
+            <xs:element name="Eszkozgyarto" type="eszkozgyartoTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="eszkozgyartoTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string"/>
+            <xs:element name="alapitasEve" type="xs:integer"/>
+            <xs:element name="bevetel" type="xs:integer"/>
+        </xs:sequence>
+        <xs:attribute name="gyarto_id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Ugyintezesek tipusanak a definialasa -->
+    <xs:complexType name="ugyintezesekTipus">
+        <xs:sequence>
+            <xs:element name="Ugyintezes" type="ugyintezesTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ugyintezesTipus">
+        <xs:sequence>
+            <xs:element name="tipus" type="xs:string"/>
+            <xs:element name="idotartam" type="xs:integer"/>
+        </xs:sequence>
+        <xs:attribute name="ugyintezes_id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Ertekesitesek tipusanak a definialasa -->
+    <xs:complexType name="ertekesitesekTipus">
+        <xs:sequence>
+            <xs:element name="Ertekesites" type="ertekesitesTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ertekesitesTipus">
+        <xs:sequence>
+            <xs:element name="megrendeles" type="xs:string"/>
+            <xs:element name="idopont" type="xs:date"/>
+        </xs:sequence>
+        <xs:attribute name="ertekesites_id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

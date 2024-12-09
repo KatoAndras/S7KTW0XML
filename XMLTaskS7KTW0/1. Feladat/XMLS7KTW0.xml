@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Letrehozom a TelekomCeg-et -->
+<TelekomCeg>
+
+	<!-- Definialom a dolgozokat, a tulajdonsagait, attributumait -->
+	<Dolgozok>
+	
+		<!-- Elso dolgozo -->
+	    <Dolgozo dolg_id="D1">
+	        <nev>Kerekes Andras</nev>
+	        <szul_ev>1975</szul_ev>
+	        <beosztas>D2D</beosztas>
+	    </Dolgozo>
+	    
+	    <!-- Masodik dolgozo -->
+	    <Dolgozo dolg_id="D2">
+	        <nev>Juhász Ilona</nev>
+	        <szul_ev>1985</szul_ev>
+	        <beosztas>CC</beosztas>
+	    </Dolgozo>
+	    
+	   	<!-- Harmadik dolgozo -->
+	    <Dolgozo dolg_id="D3">
+	        <nev>Habar Aladar</nev>
+	        <szul_ev>2000</szul_ev>
+	        <beosztas>Gyakornok</beosztas>
+	    </Dolgozo>   
+	     
+	</Dolgozok>
+	
+
+	<!-- Definialom a szolgaltatasokat, a tulajdonsagait, attributumait -->
+	<Szolgaltatasok>
+	
+		<!-- Elso szolgaltatas -->
+	    <Szolgaltatas szolg_id="SZ1" d_sz="D1">
+	        <nev>Internet</nev>
+	        <ar>500</ar>
+	        <technologia>optika</technologia>
+	    </Szolgaltatas>
+	    
+	    <!-- Masodik szolgaltatas -->
+	    <Szolgaltatas szolg_id="SZ2" d_sz="D2">
+	        <nev>TV</nev>
+	        <ar>1500</ar>
+	        <technologia>koax</technologia>
+	    </Szolgaltatas>
+	    
+	    <!-- Harmadik szolgaltatas -->
+	    <Szolgaltatas szolg_id="SZ3" d_sz="D3">
+	        <nev>Telefon</nev>
+	        <ar>300</ar>
+	        <technologia>rez</technologia>
+	    </Szolgaltatas>
+	    
+	    <!-- Negyedik szolgaltatas -->
+	    <Szolgaltatas szolg_id="SZ4" d_sz="D2">
+	        <nev>Mobil</nev>
+	        <ar>5000</ar>
+	        <technologia>radio</technologia>
+	    </Szolgaltatas>	 
+	       
+	</Szolgaltatasok>
+	
+	
+	<!-- Definialom az Ugyfeleket, a tulajdonsagait, attributumait -->
+	<Ugyfelek>
+	    
+	    <!-- Elso ugyfel -->
+	    <Ugyfel ugyfel_id="U1" d_u="D1">
+	        <nev>Kovacs Albert</nev>
+	        <szul_ev>1990</szul_ev>
+	        <eletkor>34</eletkor>
+	        <lakcim>
+	        	<irsz>3500</irsz>
+	        	<kozseg>Miskolc</kozseg>
+	        	<kozterulet>Hejo utca</kozterulet>
+	        	<hazszam>10</hazszam>
+	        </lakcim>
+	        <aktivSzolgaltatasok>
+	        	<aktivSzolgaltatas>TV</aktivSzolgaltatas>
+	        	<aktivSzolgaltatas>Internet</aktivSzolgaltatas>
+	        </aktivSzolgaltatasok>
+	    </Ugyfel>
+	    
+	    <!-- Masodik ugyfel -->
+	    <Ugyfel ugyfel_id="U2" d_u="D2">
+	        <nev>Nemeth Lili</nev>
+	        <szul_ev>1970</szul_ev>
+	        <eletkor>54</eletkor>
+	        <lakcim>
+	        	<irsz>1200</irsz>
+	        	<kozseg>Budapest</kozseg>
+	        	<kozterulet>Rokon utca</kozterulet>
+	        	<hazszam>8</hazszam>
+	        </lakcim>
+	        <aktivSzolgaltatasok>
+	        	<aktivSzolgaltatas>Telefon</aktivSzolgaltatas>
+	        	<aktivSzolgaltatas>Mobil</aktivSzolgaltatas>
+	        </aktivSzolgaltatasok>
+	    </Ugyfel>
+	    
+	    <!-- Harmadik ugyfel -->
+	    <Ugyfel ugyfel_id="U3" d_u="D3">
+	        <nev>Kato Andras</nev>
+	        <szul_ev>2000</szul_ev>
+	        <eletkor>24</eletkor>
+	        <lakcim>
+	        	<irsz>3530</irsz>
+	        	<kozseg>Miskolc</kozseg>
+	        	<kozterulet>Sarolta utca</kozterulet>
+	        	<hazszam>8</hazszam>
+	        </lakcim>
+	        <aktivSzolgaltatasok>
+	        	<aktivSzolgaltatas>Internet</aktivSzolgaltatas>
+	        	<aktivSzolgaltatas>TV</aktivSzolgaltatas>
+	        	<aktivSzolgaltatas>Telefon</aktivSzolgaltatas>
+	        	<aktivSzolgaltatas>Mobil</aktivSzolgaltatas>
+	        </aktivSzolgaltatasok>
+	    </Ugyfel>
+	    
+	</Ugyfelek>
+	
+	
+	<!-- Definialom a mentorokat, a tulajdonsagait, attributumait -->
+	<Mentorok>
+	    
+	    <!-- Elso mentor -->
+	    <Mentor mentor_id="M1">
+	        <nev>Hajdu Csilla</nev>
+	        <telefonszam>06704682578</telefonszam>
+	        <ledolgozottEvek>5</ledolgozottEvek>
+	    </Mentor>
+	    
+	    <!-- Masodik mentor -->
+	    <Mentor mentor_id="M2">
+	        <nev>Klinga Ferenc</nev>
+	        <telefonszam>06304781236</telefonszam>
+	        <ledolgozottEvek>8</ledolgozottEvek>
+	    </Mentor>
+	    
+	    <!-- Harmadik mentor -->
+	    <Mentor mentor_id="M3">
+	        <nev>Kecskes Milan</nev>
+	        <telefonszam>06704286996</telefonszam>
+	        <ledolgozottEvek>2</ledolgozottEvek>
+	    </Mentor>  
+	      
+	</Mentorok>
+	
+	
+	<!-- Definialom az eszkozgyartokat, a tulajdonsagait, attributumait -->
+	<Eszkozgyartok>
+	
+		<!-- Elso eszkozgyarto -->
+		<Eszkozgyarto gyarto_id="ESZ1">
+			<nev>Bajor Tech.</nev>
+			<alapitasEve>1990</alapitasEve>
+			<bevetel>12000</bevetel>
+		</Eszkozgyarto>
+		
+		<!-- Masodik eszkozgyarto -->
+		<Eszkozgyarto gyarto_id="ESZ2">
+			<nev>FinnTech</nev>
+			<alapitasEve>2010</alapitasEve>
+			<bevetel>150000</bevetel>
+		</Eszkozgyarto>
+		
+		<!-- Harmadik eszkozgyarto -->
+		<Eszkozgyarto gyarto_id="ESZ3">
+			<nev>Clippy Technologies</nev>
+			<alapitasEve>1950</alapitasEve>
+			<bevetel>5000000</bevetel>
+		</Eszkozgyarto>
+		
+	</Eszkozgyartok>
+	
+	
+	<!-- Definialom az ugyintezeseket, a tulajdonsagait, attributumait -->
+	<Ugyintezesek>
+	
+		<!-- Elso ugyintezes -->
+		<Ugyintezes ugyintezes_id="UGY1">
+		    <tipus>csomagvaltas</tipus>
+		    <idotartam>12</idotartam>
+	    </Ugyintezes>
+	    
+	    <!-- Masodik ugyintezes -->
+	    <Ugyintezes ugyintezes_id="UGY2">
+		    <tipus>szerzodesKerdes</tipus>
+		    <idotartam>5</idotartam>
+	    </Ugyintezes>
+	    
+	    <!-- Harmadik ugyintezes -->
+	    <Ugyintezes ugyintezes_id="UGY3">
+		    <tipus>lemondas</tipus>
+		    <idotartam>30</idotartam>
+	    </Ugyintezes>
+	    
+	</Ugyintezesek>
+	
+	
+	<!-- Definialom az ertekesiteseket, a tulajdonsagait, attributumait -->
+	<Ertekesitesek>
+	
+		<!-- Elso ertekesites -->
+		<Ertekesites ertekesites_id="ER1">
+		    <megrendeles>TV</megrendeles>
+		    <idopont>2024-12-07</idopont>
+	    </Ertekesites>
+	    
+	    <!-- Masodik ertekesites -->
+	    <Ertekesites ertekesites_id="ER2">
+		    <megrendeles>Mobil</megrendeles>
+		    <idopont>2024-12-07</idopont>
+	    </Ertekesites>
+	    
+	    <!-- Harmadik ertekesites -->
+	    <Ertekesites ertekesites_id="ER3">
+		    <megrendeles>Internet</megrendeles>
+		    <idopont>2024-12-07</idopont>
+	    </Ertekesites>
+	    
+	</Ertekesitesek>
+
+</TelekomCeg>
